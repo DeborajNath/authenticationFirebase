@@ -53,6 +53,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     children: [
                       IconButton(
                         icon: Icon(
+                          color: isFavorite ? red : Colors.black,
                           isFavorite ? Icons.favorite : Icons.favorite_border,
                         ),
                         onPressed: () {
