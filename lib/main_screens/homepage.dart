@@ -1,6 +1,5 @@
 import 'dart:developer';
-
-import 'package:authentication_firebase/components/bottom_navigation_bar.dart';
+import 'package:authentication_firebase/components/willpop.dart';
 import 'package:authentication_firebase/constants/index.dart';
 import 'package:authentication_firebase/main_screens/product_details_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -38,12 +37,7 @@ class _HomepageState extends State<Homepage> {
     ProductProvider productProvider = Provider.of<ProductProvider>(context);
 
     return WillPopScope(
-      onWillPop: () {
-        return RoutingService.gotoWithoutBack(
-          context,
-          const CustomBottomNavigationBar(),
-        );
-      },
+      onWillPop: () => onWillPop(context),
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: white,

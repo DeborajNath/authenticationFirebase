@@ -116,7 +116,19 @@ class _CheckOutPageState extends State<CheckOutPage> {
                                       ),
                                       IconButton(
                                         onPressed: () {
-                                          cartProvider.subtractQuantity(index);
+                                          if (item['quantity'] == 1) {
+                                            cartProvider.removeItem(index);
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                    '${item['product']['title']} removed from cart'),
+                                              ),
+                                            );
+                                          } else {
+                                            cartProvider
+                                                .subtractQuantity(index);
+                                          }
                                         },
                                         icon: const Icon(Icons.remove),
                                       ),
